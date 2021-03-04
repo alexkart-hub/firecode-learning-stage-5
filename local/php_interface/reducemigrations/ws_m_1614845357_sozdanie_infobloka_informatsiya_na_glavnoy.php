@@ -3,38 +3,33 @@
 /**
  * Class definition update migrations scenario actions
  **/
-class ws_m_1614341361_sozdanie_infobloka_katalog extends \WS\ReduceMigrations\Scenario\ScriptScenario
-{
+class ws_m_1614845357_sozdanie_infobloka_informatsiya_na_glavnoy extends \WS\ReduceMigrations\Scenario\ScriptScenario {
 
     /**
      * Scenario title
      **/
-    public static function name()
-    {
-        return 'Создание инфоблока Каталог';
+    public static function name() {
+        return 'Создание инфоблока Информация на главной';
     }
 
     /**
      * Priority of scenario
      **/
-    public static function priority()
-    {
+    public static function priority() {
         return self::PRIORITY_HIGH;
     }
 
     /**
      * @return string hash
      */
-    public static function hash()
-    {
-        return 'f90ecdab88cfb83c14e2b98efb95ed1f36c4f6b3';
+    public static function hash() {
+        return '1421fdb9f4c3b6339fd9d6b63f9abb55d846bef1';
     }
 
     /**
      * @return int approximately time in seconds
      */
-    public static function approximatelyTime()
-    {
+    public static function approximatelyTime() {
         return 0;
     }
 
@@ -48,30 +43,29 @@ class ws_m_1614341361_sozdanie_infobloka_katalog extends \WS\ReduceMigrations\Sc
         $ib = new CIBlock;
         $arFields = array(
             "ACTIVE" => "Yes",
-            "NAME" => "Каталог",
-            "CODE" => "catalog",
-            "IBLOCK_TYPE_ID" => "catalog",
+            "NAME" => "Новости на главной",
+            "CODE" => "news_on_main",
+            "IBLOCK_TYPE_ID" => "information",
             "SITE_ID" => array("s1"),
             "LID" => "s1",
             "SORT" => 500,
-            "LIST_PAGE_URL" => "#SITE_DIR#/catalog/index.php?ID=#IBLOCK_ID#",
-            "SECTION_PAGE_URL" => "#SITE_DIR#/catalog/list.php?SECTION_ID=#SECTION_ID#",
-            "DETAIL_PAGE_URL" => "#SITE_DIR#/catalog/detail.php?ID=#ELEMENT_ID#",
+            "LIST_PAGE_URL" => "#SITE_DIR#/news_on_main/index.php?ID=#IBLOCK_ID#",
+            "SECTION_PAGE_URL" => "#SITE_DIR#/news_on_main/list.php?SECTION_ID=#SECTION_ID#",
+            "DETAIL_PAGE_URL" => "#SITE_DIR#/news_on_main/detail.php?ID=#ELEMENT_ID#",
             "PICTURE" => "",
             "DESCRIPTION" => "",
             "DESCRIPTION_TYPE" => "text",
             "GROUP_ID" => array("2" => "R"),
-            "IS_CATALOG" => "Y",
             "SECTIONS_NAME" => "Разделы",
             "SECTION_NAME" => "Раздел",
             "SECTION_ADD" => "Добавить раздел",
             "SECTION_EDIT" => "Изменить раздел",
             "SECTION_DELETE" => "Удалить раздел",
-            "ELEMENTS_NAME" => "Товары",
-            "ELEMENT_NAME" => "Товар",
-            "ELEMENT_ADD" => "Добавить товар",
-            "ELEMENT_EDIT" => "Изменить товар",
-            "ELEMENT_DELETE" => "Удалить товар",
+            "ELEMENTS_NAME" => "Новость",
+            "ELEMENT_NAME" => "Новость",
+            "ELEMENT_ADD" => "Добавить новость",
+            "ELEMENT_EDIT" => "Изменить новость",
+            "ELEMENT_DELETE" => "Удалить новость",
         );
         $id = $ib->Add($arFields);
         $this->SetData(["id" => $id]);
@@ -95,7 +89,7 @@ class ws_m_1614341361_sozdanie_infobloka_katalog extends \WS\ReduceMigrations\Sc
                 "IS_REQUIRED" => "N",
                 "DEFAULT_VALUE" => array(
                     "SCALE" => "Y",
-                    "WIDTH" => "1000",
+                    "WIDTH" => "1500",
                     "HEIGHT" => "1000",
                 )
             ),
@@ -135,13 +129,7 @@ class ws_m_1614341361_sozdanie_infobloka_katalog extends \WS\ReduceMigrations\Sc
                 )
             ),
         );
-        CIBlock::SetFields(
-            $id,
-            $arFieldsElement
-        );
-        CModule::IncludeModule("catalog");
-        CCatalog::Add(["IBLOCK_ID" => $id]);
-    }
+     }
 
     /**
      * Write action by rollback scenario. Use method `getData` for getting commit saved data.

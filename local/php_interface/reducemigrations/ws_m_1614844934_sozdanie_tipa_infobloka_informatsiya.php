@@ -3,13 +3,13 @@
 /**
  * Class definition update migrations scenario actions
  **/
-class ws_m_1614338921_sozdanie_tipa_infobloka_katalog extends \WS\ReduceMigrations\Scenario\ScriptScenario {
+class ws_m_1614844934_sozdanie_tipa_infobloka_informatsiya extends \WS\ReduceMigrations\Scenario\ScriptScenario {
 
     /**
      * Scenario title
      **/
     public static function name() {
-        return 'Создание типа инфоблока Каталог';
+        return 'Создание типа инфоблока Информация';
     }
 
     /**
@@ -23,7 +23,7 @@ class ws_m_1614338921_sozdanie_tipa_infobloka_katalog extends \WS\ReduceMigratio
      * @return string hash
      */
     public static function hash() {
-        return '98024d6d936a42ef4c3b08485eb239f77163e265';
+        return 'a4a466c966929f2ea3bfb2ce1db5feffa5de7623';
     }
 
     /**
@@ -40,24 +40,24 @@ class ws_m_1614338921_sozdanie_tipa_infobloka_katalog extends \WS\ReduceMigratio
     public function commit() {
         // my code
         CModule::IncludeModule("iblock");
-             $arFields = Array(
-            'ID'=>'catalog',
+        $arFields = Array(
+            'ID'=>'information',
             'SECTIONS'=>'Y',
             'IN_RSS'=>'N',
             'SORT'=>100,
             'LANG'=>Array(
                 'ru'=>Array(
-                    'NAME'=>'Каталог',
+                    'NAME'=>'Информация',
                     'SECTION_NAME'=>'Раздел',
                     'ELEMENT_NAME'=>'Элемент'
-                    )
                 )
-            );
+            )
+        );
 
         $obBlocktype = new CIBlockType;
         $res = $obBlocktype->Add($arFields);
         if($res){
-        $this->SetData(['ID'=>'catalog']);
+            $this->SetData(['ID'=>$arFields['ID']]);
         }
     }
 

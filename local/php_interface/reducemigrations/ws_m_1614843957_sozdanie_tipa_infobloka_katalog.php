@@ -57,7 +57,7 @@ class ws_m_1614843957_sozdanie_tipa_infobloka_katalog extends \WS\ReduceMigratio
         $obBlocktype = new CIBlockType;
         $res = $obBlocktype->Add($arFields);
         if($res){
-            $this->SetData(['ID'=>'catalog']);
+            $this->SetData(['ID'=>$arFields['ID']]);
         }
     }
 
