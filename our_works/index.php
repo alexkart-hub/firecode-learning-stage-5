@@ -43,7 +43,7 @@ $APPLICATION->SetTitle("Наши работы");
 		"DISPLAY_PREVIEW_TEXT" => "Y",
 		"DISPLAY_TOP_PAGER" => "N",
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
-		"IBLOCK_ID" => "7",
+		"IBLOCK_ID" => "20",
 		"IBLOCK_TYPE" => "information",
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
 		"LIST_ACTIVE_DATE_FORMAT" => "d.m.Y",
