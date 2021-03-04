@@ -1,0 +1,1 @@
+<a href="/" class="footer_logo"> <img alt="Legen Auto" src="/local/templates/shop/img/footer_logo.png"> <span class="big">LEGEN AUTO</span> <span class="small">студия автоэлектроники</span> </a>

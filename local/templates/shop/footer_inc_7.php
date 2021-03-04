@@ -1,0 +1,1 @@
+<div class="head give_margin">О магазине</div>

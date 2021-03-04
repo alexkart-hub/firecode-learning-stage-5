@@ -1,0 +1,5 @@
+{
+    "require": {
+        "worksolutions/bitrix-reduce-migrations": "^1.1"
+    }
+}

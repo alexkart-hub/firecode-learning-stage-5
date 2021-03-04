@@ -1,0 +1,1 @@
+<a href="/" class="header_logo"> <img alt="Legen Auto" src="/local/templates/shop/img/header_logo.png"> <span class="text"> <span class="top">Legen Auto</span> <span class="bottom">студия автоэлектроники</span> </span> </a>
