@@ -5,7 +5,6 @@ $APPLICATION->SetTitle('Главная');
 
 
 <section class="first_screen">
-
 <?$APPLICATION->IncludeComponent(
 	"bitrix:news.list",
 	"newsmain",
@@ -38,7 +37,7 @@ $APPLICATION->SetTitle('Главная');
 		),
 		"FILTER_NAME" => "",
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
-		"IBLOCK_ID" => "18",
+		"IBLOCK_ID" => getIblocIdByCode('news_on_main'),
 		"IBLOCK_TYPE" => "information",
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
 		"INCLUDE_SUBSECTIONS" => "N",
@@ -79,7 +78,7 @@ $APPLICATION->SetTitle('Главная');
 	<div class="under_first_screnn">
 		<div class="container">
 			<div class="row">
-			<?$APPLICATION->IncludeComponent(
+ 			<?$APPLICATION->IncludeComponent(
 				"bitrix:catalog.section.list",
 				"show_on_main",
 				array(
@@ -92,8 +91,8 @@ $APPLICATION->SetTitle('Главная');
 					"COUNT_ELEMENTS_FILTER" => "CNT_ACTIVE",
 					"FILTER_NAME" => "sectionsFilter",
 					"HIDE_SECTION_NAME" => "N",
-					"IBLOCK_ID" => "1",
-					"IBLOCK_TYPE" => "goods",
+					"IBLOCK_ID" => getIblocIdByCode('catalog'),
+					"IBLOCK_TYPE" => "catalog",
 					"SECTION_CODE" => "",
 					"SECTION_FIELDS" => array(
 						0 => "PICTURE",
@@ -148,7 +147,7 @@ $APPLICATION->SetTitle('Главная');
 		"FILTER_NAME" => "",
 		"HIDE_NOT_AVAILABLE" => "Y",
 		"HIDE_NOT_AVAILABLE_OFFERS" => "Y",
-		"IBLOCK_ID" => "14",
+		"IBLOCK_ID" => getIblocIdByCode('catalog'),
 		"IBLOCK_TYPE" => "catalog",
 		"LABEL_PROP" => array(
 		),

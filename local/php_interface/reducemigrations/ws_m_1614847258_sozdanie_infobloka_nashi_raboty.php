@@ -129,6 +129,10 @@ class ws_m_1614847258_sozdanie_infobloka_nashi_raboty extends \WS\ReduceMigratio
                 )
             ),
         );
+        CIBlock::SetFields(
+            $id,
+            $arFieldsElement
+        );
     }
 
     /**

@@ -4,6 +4,16 @@ $APPLICATION->SetTitle("Наши работы");
 ?>
 
 <section class="content_page">
+<?$res = CIBlock::GetList(
+    Array(),
+    Array(
+        'TYPE'=>'information',
+        'SITE_ID'=>SITE_ID,
+        'ACTIVE'=>'Y',
+        "CODE"=>'our_works'
+    ), true
+);
+$iblockId = $res->Fetch()['ID'];?>
 <?$APPLICATION->IncludeComponent(
 	"bitrix:news", 
 	"works_index", 
@@ -43,7 +53,7 @@ $APPLICATION->SetTitle("Наши работы");
 		"DISPLAY_PREVIEW_TEXT" => "Y",
 		"DISPLAY_TOP_PAGER" => "N",
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
-		"IBLOCK_ID" => "20",
+		"IBLOCK_ID" => $iblockId,
 		"IBLOCK_TYPE" => "information",
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
 		"LIST_ACTIVE_DATE_FORMAT" => "d.m.Y",

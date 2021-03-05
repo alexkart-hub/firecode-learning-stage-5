@@ -3,13 +3,13 @@
 /**
  * Class definition update migrations scenario actions
  **/
-class ws_m_1614845357_sozdanie_infobloka_informatsiya_na_glavnoy extends \WS\ReduceMigrations\Scenario\ScriptScenario {
+class ws_m_1614872368_sozdanie_infobloka_stati extends \WS\ReduceMigrations\Scenario\ScriptScenario {
 
     /**
      * Scenario title
      **/
     public static function name() {
-        return 'Создание инфоблока Информация на главной';
+        return 'Создание инфоблока Статьи';
     }
 
     /**
@@ -23,7 +23,7 @@ class ws_m_1614845357_sozdanie_infobloka_informatsiya_na_glavnoy extends \WS\Red
      * @return string hash
      */
     public static function hash() {
-        return '1421fdb9f4c3b6339fd9d6b63f9abb55d846bef1';
+        return '9b4c3e6ee01072a90a1b65af0384b2b288b3f85f';
     }
 
     /**
@@ -43,15 +43,15 @@ class ws_m_1614845357_sozdanie_infobloka_informatsiya_na_glavnoy extends \WS\Red
         $ib = new CIBlock;
         $arFields = array(
             "ACTIVE" => "Yes",
-            "NAME" => "Новости на главной",
-            "CODE" => "news_on_main",
+            "NAME" => "Статьи",
+            "CODE" => "articles",
             "IBLOCK_TYPE_ID" => "information",
             "SITE_ID" => array("s1"),
             "LID" => "s1",
             "SORT" => 500,
-            "LIST_PAGE_URL" => "#SITE_DIR#/news_on_main/index.php?ID=#IBLOCK_ID#",
-            "SECTION_PAGE_URL" => "#SITE_DIR#/news_on_main/list.php?SECTION_ID=#SECTION_ID#",
-            "DETAIL_PAGE_URL" => "#SITE_DIR#/news_on_main/detail.php?ID=#ELEMENT_ID#",
+            "LIST_PAGE_URL" => "#SITE_DIR#/articles/index.php?ID=#IBLOCK_ID#",
+            "SECTION_PAGE_URL" => "#SITE_DIR#/articles/list.php?SECTION_ID=#SECTION_ID#",
+            "DETAIL_PAGE_URL" => "#SITE_DIR#/articles/detail.php?ID=#ELEMENT_ID#",
             "PICTURE" => "",
             "DESCRIPTION" => "",
             "DESCRIPTION_TYPE" => "text",
@@ -61,11 +61,11 @@ class ws_m_1614845357_sozdanie_infobloka_informatsiya_na_glavnoy extends \WS\Red
             "SECTION_ADD" => "Добавить раздел",
             "SECTION_EDIT" => "Изменить раздел",
             "SECTION_DELETE" => "Удалить раздел",
-            "ELEMENTS_NAME" => "Новость",
-            "ELEMENT_NAME" => "Новость",
-            "ELEMENT_ADD" => "Добавить новость",
-            "ELEMENT_EDIT" => "Изменить новость",
-            "ELEMENT_DELETE" => "Удалить новость",
+            "ELEMENTS_NAME" => "Статья",
+            "ELEMENT_NAME" => "Статья",
+            "ELEMENT_ADD" => "Добавить статью",
+            "ELEMENT_EDIT" => "Изменить статью",
+            "ELEMENT_DELETE" => "Удалить статью",
         );
         $id = $ib->Add($arFields);
         $this->SetData(["id" => $id]);
@@ -89,7 +89,7 @@ class ws_m_1614845357_sozdanie_infobloka_informatsiya_na_glavnoy extends \WS\Red
                 "IS_REQUIRED" => "N",
                 "DEFAULT_VALUE" => array(
                     "SCALE" => "Y",
-                    "WIDTH" => "1500",
+                    "WIDTH" => "1000",
                     "HEIGHT" => "1000",
                 )
             ),
@@ -133,7 +133,7 @@ class ws_m_1614845357_sozdanie_infobloka_informatsiya_na_glavnoy extends \WS\Red
             $id,
             $arFieldsElement
         );
-     }
+    }
 
     /**
      * Write action by rollback scenario. Use method `getData` for getting commit saved data.
