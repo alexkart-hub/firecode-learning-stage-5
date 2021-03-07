@@ -99,6 +99,7 @@ class ws_m_1614845357_sozdanie_infobloka_informatsiya_na_glavnoy extends \WS\Red
                     "UNIQUE" => "Y",
                     "TRANSLITERATION" => "Y",
                     "TRANS_CASE" => "L",
+                    "TRANS_SPACE"=> "-",
                 )
             ),
             "SECTION_PICTURE" => array(
@@ -126,6 +127,7 @@ class ws_m_1614845357_sozdanie_infobloka_informatsiya_na_glavnoy extends \WS\Red
                     "UNIQUE" => "Y",
                     "TRANSLITERATION" => "Y",
                     "TRANS_CASE" => "L",
+                    "TRANS_SPACE"=> "-",
                 )
             ),
         );

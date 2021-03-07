@@ -37,7 +37,7 @@ $APPLICATION->SetTitle('Главная');
 		),
 		"FILTER_NAME" => "",
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
-		"IBLOCK_ID" => getIblocIdByCode('news_on_main'),
+		"IBLOCK_ID" => getIblockIdByCode('news_on_main'),
 		"IBLOCK_TYPE" => "information",
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
 		"INCLUDE_SUBSECTIONS" => "N",
@@ -78,40 +78,40 @@ $APPLICATION->SetTitle('Главная');
 	<div class="under_first_screnn">
 		<div class="container">
 			<div class="row">
- 			<?$APPLICATION->IncludeComponent(
-				"bitrix:catalog.section.list",
-				"show_on_main",
-				array(
-					"ADD_SECTIONS_CHAIN" => "N",
-					"CACHE_FILTER" => "N",
-					"CACHE_GROUPS" => "Y",
-					"CACHE_TIME" => "36000000",
-					"CACHE_TYPE" => "A",
-					"COUNT_ELEMENTS" => "N",
-					"COUNT_ELEMENTS_FILTER" => "CNT_ACTIVE",
-					"FILTER_NAME" => "sectionsFilter",
-					"HIDE_SECTION_NAME" => "N",
-					"IBLOCK_ID" => getIblocIdByCode('catalog'),
-					"IBLOCK_TYPE" => "catalog",
-					"SECTION_CODE" => "",
-					"SECTION_FIELDS" => array(
-						0 => "PICTURE",
-						1 => "",
-					),
-					"SECTION_ID" => $_REQUEST["SECTION_ID"],
-					"SECTION_URL" => "/catalog/#SECTION_CODE#/",
-					"SECTION_USER_FIELDS" => array(
-						0 => "UF_SHOW_ON_MAIN",
-						1 => "UF_PICTURE_ACTIVE",
-						2 => "",
-					),
-					"SHOW_PARENT_NAME" => "Y",
-					"TOP_DEPTH" => "1",
-					"VIEW_MODE" => "TILE",
-					"COMPONENT_TEMPLATE" => "show_on_main"
-				),
-				false
-			);?>
+                <?$APPLICATION->IncludeComponent(
+                    "bitrix:catalog.section.list",
+                    "show_on_main",
+                    array(
+                        "ADD_SECTIONS_CHAIN" => "N",
+                        "CACHE_FILTER" => "N",
+                        "CACHE_GROUPS" => "Y",
+                        "CACHE_TIME" => "36000000",
+                        "CACHE_TYPE" => "A",
+                        "COUNT_ELEMENTS" => "N",
+                        "COUNT_ELEMENTS_FILTER" => "CNT_ACTIVE",
+                        "FILTER_NAME" => "sectionsFilter",
+                        "HIDE_SECTION_NAME" => "N",
+                        "IBLOCK_ID" => getIblockIdByCode('catalog'),
+                        "IBLOCK_TYPE" => "catalog",
+                        "SECTION_CODE" => "",
+                        "SECTION_FIELDS" => array(
+                            0 => "PICTURE",
+                            1 => "",
+                        ),
+                        "SECTION_ID" => $_REQUEST["SECTION_ID"],
+                        "SECTION_URL" => "/catalog/#SECTION_CODE#/",
+                        "SECTION_USER_FIELDS" => array(
+                            0 => "UF_SHOW_ON_MAIN",
+                            1 => "UF_PICTURE_ACTIVE",
+                            2 => "",
+                        ),
+                        "SHOW_PARENT_NAME" => "Y",
+                        "TOP_DEPTH" => "1",
+                        "VIEW_MODE" => "TILE",
+                        "COMPONENT_TEMPLATE" => "show_on_main"
+                    ),
+                    false
+                );?>
 			</div>
 		</div>
 	</div>
@@ -136,7 +136,7 @@ $APPLICATION->SetTitle('Главная');
 		"COMPONENT_TEMPLATE" => "eight_goods_on_main",
 		"CONVERT_CURRENCY" => "N",
 		"CUSTOM_FILTER" => "{\"CLASS_ID\":\"CondGroup\",\"DATA\":{\"All\":\"AND\",\"True\":\"True\"},\"CHILDREN\":[]}",
-		"DETAIL_URL" => "/catalog/#SECTION_CODE_PATH#/#ELEMENT_CODE#/",
+		"DETAIL_URL" => "/catalog/#SECTION_CODE_PATH#/#ELEMENT_CODE#",
 		"DISPLAY_COMPARE" => "N",
 		"ELEMENT_COUNT" => "8",
 		"ELEMENT_SORT_FIELD" => "shows",
@@ -147,10 +147,9 @@ $APPLICATION->SetTitle('Главная');
 		"FILTER_NAME" => "",
 		"HIDE_NOT_AVAILABLE" => "Y",
 		"HIDE_NOT_AVAILABLE_OFFERS" => "Y",
-		"IBLOCK_ID" => getIblocIdByCode('catalog'),
+		"IBLOCK_ID" => getIblockIdByCode("catalog"),
 		"IBLOCK_TYPE" => "catalog",
-		"LABEL_PROP" => array(
-		),
+		"LABEL_PROP" => "",
 		"LINE_ELEMENT_COUNT" => "4",
 		"MESS_BTN_ADD_TO_BASKET" => "В корзину",
 		"MESS_BTN_BUY" => "Купить",
@@ -171,7 +170,7 @@ $APPLICATION->SetTitle('Главная');
 		"ROTATE_TIMER" => "30",
 		"SECTION_URL" => "/catalog/#SECTION_CODE_PATH#/",
 		"SEF_MODE" => "Y",
-		"SEF_RULE" => "/catalog/#SECTION_CODE_PATH#/#ELEMENT_CODE#/",
+		"SEF_RULE" => "/catalog/#SECTION_CODE_PATH#/#ELEMENT_CODE#",
 		"SHOW_CLOSE_POPUP" => "N",
 		"SHOW_DISCOUNT_PERCENT" => "N",
 		"SHOW_MAX_QUANTITY" => "N",
@@ -185,7 +184,7 @@ $APPLICATION->SetTitle('Главная');
 		"USE_ENHANCED_ECOMMERCE" => "N",
 		"USE_PRICE_COUNT" => "N",
 		"USE_PRODUCT_QUANTITY" => "Y",
-		"VIEW_MODE" => "BANNER",
+		"VIEW_MODE" => "SECTION",
 		"PROPERTY_CODE_MOBILE" => ""
 	),
 	false
@@ -224,7 +223,7 @@ $APPLICATION->SetTitle('Главная');
 		),
 		"FILTER_NAME" => "",
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
-		"IBLOCK_ID" => "6",
+		"IBLOCK_ID" => getIblockIdByCode('articles'),
 		"IBLOCK_TYPE" => "information",
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
 		"INCLUDE_SUBSECTIONS" => "N",
@@ -277,8 +276,8 @@ $APPLICATION->SetTitle('Главная');
 		"COUNT_ELEMENTS_FILTER" => "CNT_ACTIVE",
 		"FILTER_NAME" => "sectionsFilter",
 		"HIDE_SECTION_NAME" => "N",
-		"IBLOCK_ID" => "1",
-		"IBLOCK_TYPE" => "goods",
+		"IBLOCK_ID" => getIblockIdByCode('catalog'),
+		"IBLOCK_TYPE" => "catalog",
 		"SECTION_CODE" => "",
 		"SECTION_FIELDS" => array(
 			0 => "NAME",

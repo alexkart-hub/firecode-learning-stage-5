@@ -316,7 +316,7 @@ if (0 < $arResult["SECTIONS_COUNT"])
 			unset($arSection);
 			?>
 				</div>
-
+                <br>
 			<?
 			break;
 		case 'LIST':

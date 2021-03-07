@@ -102,7 +102,7 @@ if (0 < $arResult['SECTIONS_COUNT'])
 
 $depthLevel = $arResult['SECTION']['DEPTH_LEVEL']+1;
 $id = $arResult['SECTION']['ID'];
-$arFilter = Array('IBLOCK_ID'=> 1, 'GLOBAL_ACTIVE'=>'Y');
+$arFilter = Array('IBLOCK_ID'=> $arParams['IBLOCK_ID'], 'GLOBAL_ACTIVE'=>'Y');
 $arSelect = Array('ID','NAME','IBLOCK_SECTION_ID','DEPTH_LEVEL','SECTION_PAGE_URL');
 //$arSelect = Array();
 $db_list = CIBlockSection::GetList(Array('left_margin'=>'asc'), $arFilter, false, $arSelect);
@@ -140,7 +140,7 @@ while($ar_result_sec = $db_list->GetNext())
 }
 
 $arOrder = Array('active_from' => 'desc');
-$arFilter = Array('IBLOCK_ID' => 1);
+$arFilter = Array('IBLOCK_ID' => $arParams['IBLOCK_ID']);
 $arSelect = Array('ID','NAME','IBLOCK_SECTION_ID','PRICE_1','PREVIEW_PICTURE','DETAIL_PAGE_URL');
 $arElements = CIBlockElement::GetList($arOrder,$arFilter,false,false,$arSelect);
 
@@ -170,4 +170,3 @@ foreach($arResult['SECTIONS'] as $key=>$section)
 		}
 	}
 }
-?>

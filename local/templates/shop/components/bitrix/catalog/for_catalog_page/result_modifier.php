@@ -3,7 +3,7 @@ $arFilter = array("IBLOCK_ID" => $arParams['IBLOCK_ID'],"ID" => $arResult['VARIA
 $arDate = CIBlockSection::GetList(Array(),$arFilter,true,array("DESCRIPTION","UF_SEO_TITLE"));
 $arResult['ITEM'] = $arDate->GetNext();
 
-$arSectionsFilter = array("IBLOCK_ID" =>  1, "DEPTH_LEVEL" => 1);
+$arSectionsFilter = array("IBLOCK_ID" =>  $arParams['IBLOCK_ID'], "DEPTH_LEVEL" => 1);
 $arSectionsSelect = array("ID","CODE" );
 $rsSectionsList = CIBlockSection::GetList(Array(),$arSectionsFilter,false,$arSectionsSelect);
 

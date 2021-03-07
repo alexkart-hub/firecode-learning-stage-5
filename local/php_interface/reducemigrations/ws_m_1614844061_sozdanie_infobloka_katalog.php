@@ -100,6 +100,7 @@ class ws_m_1614844061_sozdanie_infobloka_katalog extends \WS\ReduceMigrations\Sc
                     "UNIQUE" => "Y",
                     "TRANSLITERATION" => "Y",
                     "TRANS_CASE" => "L",
+                    "TRANS_SPACE"=> "-",
                 )
             ),
             "SECTION_PICTURE" => array(
@@ -127,6 +128,7 @@ class ws_m_1614844061_sozdanie_infobloka_katalog extends \WS\ReduceMigrations\Sc
                     "UNIQUE" => "Y",
                     "TRANSLITERATION" => "Y",
                     "TRANS_CASE" => "L",
+                    "TRANS_SPACE"=> "-",
                 )
             ),
         );

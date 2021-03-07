@@ -99,6 +99,7 @@ class ws_m_1614847258_sozdanie_infobloka_nashi_raboty extends \WS\ReduceMigratio
                     "UNIQUE" => "Y",
                     "TRANSLITERATION" => "Y",
                     "TRANS_CASE" => "L",
+                    "TRANS_SPACE"=> "-",
                 )
             ),
             "SECTION_PICTURE" => array(
@@ -126,6 +127,7 @@ class ws_m_1614847258_sozdanie_infobloka_nashi_raboty extends \WS\ReduceMigratio
                     "UNIQUE" => "Y",
                     "TRANSLITERATION" => "Y",
                     "TRANS_CASE" => "L",
+                    "TRANS_SPACE"=> "-",
                 )
             ),
         );

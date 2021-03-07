@@ -83,37 +83,37 @@ if ($arParams['USE_FILTER'] == 'Y')
 	<?//print_r($arParams)?>
 	<?//print_r($arResult)?>
 
-	<?$APPLICATION->IncludeComponent(
-		"bitrix:catalog.smart.filter",
-		"shop_catalog_filter",
-		array(
-			"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
-			"IBLOCK_ID" => $arParams["IBLOCK_ID"],
-			"SECTION_ID" => $arCurSection['ID'],
-			"FILTER_NAME" => $arParams["FILTER_NAME"],
-			"PRICE_CODE" => $arParams["PRICE_CODE"],
-			"CACHE_TYPE" => $arParams["CACHE_TYPE"],
-			"CACHE_TIME" => $arParams["CACHE_TIME"],
-			"CACHE_GROUPS" => $arParams["CACHE_GROUPS"],
-			"SAVE_IN_SESSION" => "N",
-			"FILTER_VIEW_MODE" => $arParams["FILTER_VIEW_MODE"],
-			"XML_EXPORT" => "Y",
-			"SECTION_TITLE" => "NAME",
-			"SECTION_DESCRIPTION" => "DESCRIPTION",
-			'HIDE_NOT_AVAILABLE' => $arParams["HIDE_NOT_AVAILABLE"],
-			"TEMPLATE_THEME" => $arParams["TEMPLATE_THEME"],
-			'CONVERT_CURRENCY' => $arParams['CONVERT_CURRENCY'],
-			'CURRENCY_ID' => $arParams['CURRENCY_ID'],
-			"SEF_MODE" => $arParams["SEF_MODE"],
-			"SEF_RULE" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["smart_filter"],
-			"SMART_FILTER_PATH" => $arResult["VARIABLES"]["SMART_FILTER_PATH"],
-			"PAGER_PARAMS_NAME" => $arParams["PAGER_PARAMS_NAME"],
-			"SHOW_TEMPLATE" => "N",
-		),
-		$component,
-		array('HIDE_ICONS' => 'Y')
-	);?>
-
+    <?$this->SetViewTarget('SmartFilter');?>
+        <?$APPLICATION->IncludeComponent(
+            "bitrix:catalog.smart.filter",
+            "shop_catalog_filter",
+            array(
+                "IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
+                "IBLOCK_ID" => $arParams["IBLOCK_ID"],
+                "SECTION_ID" => $arCurSection['ID'],
+                "FILTER_NAME" => $arParams["FILTER_NAME"],
+                "PRICE_CODE" => $arParams["PRICE_CODE"],
+                "CACHE_TYPE" => $arParams["CACHE_TYPE"],
+                "CACHE_TIME" => $arParams["CACHE_TIME"],
+                "CACHE_GROUPS" => $arParams["CACHE_GROUPS"],
+                "SAVE_IN_SESSION" => "N",
+                "FILTER_VIEW_MODE" => $arParams["FILTER_VIEW_MODE"],
+                "XML_EXPORT" => "Y",
+                "SECTION_TITLE" => "NAME",
+                "SECTION_DESCRIPTION" => "DESCRIPTION",
+                'HIDE_NOT_AVAILABLE' => $arParams["HIDE_NOT_AVAILABLE"],
+                "TEMPLATE_THEME" => $arParams["TEMPLATE_THEME"],
+                'CONVERT_CURRENCY' => $arParams['CONVERT_CURRENCY'],
+                'CURRENCY_ID' => $arParams['CURRENCY_ID'],
+                "SEF_MODE" => $arParams["SEF_MODE"],
+                "SEF_RULE" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["smart_filter"],
+                "SMART_FILTER_PATH" => $arResult["VARIABLES"]["SMART_FILTER_PATH"],
+                "PAGER_PARAMS_NAME" => $arParams["PAGER_PARAMS_NAME"],
+            ),
+            $component,
+            array('HIDE_ICONS' => 'Y')
+        );?>
+    <?$this->EndViewTarget();?>
 <?
 	if ($verticalGrid)
 	{
@@ -325,7 +325,7 @@ $intSectionID = 0;
 		"FILE_404" => "",
 		"FILTER_NAME" => "",
 		"HIDE_LINK_WHEN_NO_DETAIL" => "N",
-		"IBLOCK_ID" => "7",
+		"IBLOCK_ID" => getIblockIdByCode('our_works'),
 		"IBLOCK_TYPE" => "information",
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
 		"INCLUDE_SUBSECTIONS" => "N",

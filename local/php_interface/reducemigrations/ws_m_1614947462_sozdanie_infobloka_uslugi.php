@@ -3,13 +3,13 @@
 /**
  * Class definition update migrations scenario actions
  **/
-class ws_m_1614872368_sozdanie_infobloka_stati extends \WS\ReduceMigrations\Scenario\ScriptScenario {
+class ws_m_1614947462_sozdanie_infobloka_uslugi extends \WS\ReduceMigrations\Scenario\ScriptScenario {
 
     /**
      * Scenario title
      **/
     public static function name() {
-        return 'Создание инфоблока Статьи';
+        return 'Создание инфоблока Услуги';
     }
 
     /**
@@ -23,7 +23,7 @@ class ws_m_1614872368_sozdanie_infobloka_stati extends \WS\ReduceMigrations\Scen
      * @return string hash
      */
     public static function hash() {
-        return '9b4c3e6ee01072a90a1b65af0384b2b288b3f85f';
+        return '79aa1f033774b01ebca5aa70d789db4e97829e6e';
     }
 
     /**
@@ -43,15 +43,16 @@ class ws_m_1614872368_sozdanie_infobloka_stati extends \WS\ReduceMigrations\Scen
         $ib = new CIBlock;
         $arFields = array(
             "ACTIVE" => "Yes",
-            "NAME" => "Статьи",
-            "CODE" => "articles",
-            "IBLOCK_TYPE_ID" => "information",
+            "NAME" => "Услуги",
+            "CODE" => "services",
+            "IBLOCK_TYPE_ID" => "activity",
             "SITE_ID" => array("s1"),
             "LID" => "s1",
             "SORT" => 500,
-            "LIST_PAGE_URL" => "#SITE_DIR#/articles/index.php?ID=#IBLOCK_ID#",
-            "SECTION_PAGE_URL" => "#SITE_DIR#/articles/list.php?SECTION_ID=#SECTION_ID#",
-            "DETAIL_PAGE_URL" => "#SITE_DIR#/articles/detail.php?ID=#ELEMENT_ID#",
+            "LIST_PAGE_URL" => "#SITE_DIR#/services/index.php?ID=#IBLOCK_ID#",
+            "SECTION_PAGE_URL" => "#SITE_DIR#/services/list.php?SECTION_ID=#SECTION_ID#",
+            "DETAIL_PAGE_URL" => "#SITE_DIR#/services/detail.php?ID=#ELEMENT_ID#",
+            'LIST_MODE' => 'C',
             "PICTURE" => "",
             "DESCRIPTION" => "",
             "DESCRIPTION_TYPE" => "text",
@@ -61,11 +62,11 @@ class ws_m_1614872368_sozdanie_infobloka_stati extends \WS\ReduceMigrations\Scen
             "SECTION_ADD" => "Добавить раздел",
             "SECTION_EDIT" => "Изменить раздел",
             "SECTION_DELETE" => "Удалить раздел",
-            "ELEMENTS_NAME" => "Статья",
-            "ELEMENT_NAME" => "Статья",
-            "ELEMENT_ADD" => "Добавить статью",
-            "ELEMENT_EDIT" => "Изменить статью",
-            "ELEMENT_DELETE" => "Удалить статью",
+            "ELEMENTS_NAME" => "Услуга",
+            "ELEMENT_NAME" => "Услуга",
+            "ELEMENT_ADD" => "Добавить услугу",
+            "ELEMENT_EDIT" => "Изменить услугу",
+            "ELEMENT_DELETE" => "Удалить услугу",
         );
         $id = $ib->Add($arFields);
         $this->SetData(["id" => $id]);

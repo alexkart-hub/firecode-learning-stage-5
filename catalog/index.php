@@ -9,8 +9,8 @@ $APPLICATION->SetTitle("Каталог");
 				 Каталог
 			</div>
 			<?$APPLICATION->IncludeComponent(
-	"bitrix:menu", 
-	"shop_catalog_vertical", 
+	"bitrix:menu",
+	"shop_catalog_vertical",
 	array(
 		"ALLOW_MULTI_SELECT" => "N",
 		"CHILD_MENU_TYPE" => "left",
@@ -132,7 +132,7 @@ $APPLICATION->SetTitle("Каталог");
 		"GIFTS_SHOW_OLD_PRICE" => "Y",
 		"HIDE_NOT_AVAILABLE" => "Y",
 		"HIDE_NOT_AVAILABLE_OFFERS" => "N",
-		"IBLOCK_ID" => "17",
+		"IBLOCK_ID" => getIblockIdByCode('catalog'),
 		"IBLOCK_TYPE" => "catalog",
 		"INCLUDE_SUBSECTIONS" => "Y",
 		"INSTANT_RELOAD" => "N",
@@ -268,7 +268,7 @@ $APPLICATION->SetTitle("Каталог");
 		"SEF_URL_TEMPLATES" => array(
 			"sections" => "",
 			"section" => "#SECTION_CODE_PATH#/",
-			"element" => "#SECTION_CODE_PATH#/#ELEMENT_CODE#/",
+			"element" => "#SECTION_CODE_PATH#/#ELEMENT_CODE#",
 			"compare" => "compare.php?action=#ACTION_CODE#",
 			"smart_filter" => "#SECTION_CODE_PATH#/filter/#SMART_FILTER_PATH#/apply/",
 		),
