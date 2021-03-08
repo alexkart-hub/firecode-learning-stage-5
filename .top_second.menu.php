@@ -1,4 +1,10 @@
 <?
+global $USER;
+if($USER->IsAuthorized()) {
+    $authName = "Выход";
+}else{
+    $authName = "Вход";
+}
 $aMenuLinks = Array(
 	Array(
 		"Каталог", 
@@ -34,6 +40,13 @@ $aMenuLinks = Array(
 		Array(), 
 		Array(), 
 		"" 
+	),
+	Array(
+        $authName,
+		"/auth",
+		Array(),
+		Array(),
+		""
 	)
 );
 ?>

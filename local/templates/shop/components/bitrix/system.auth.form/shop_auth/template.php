@@ -1,6 +1,12 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
 
 CJSCore::Init();
+if(isset($_REQUEST['logout']) && $_REQUEST['logout'] == 'yes'){
+    global $USER;
+    $USER->Logout();
+    header("location: /auth");
+    die;
+}
 ?>
 
 <div class="bx-system-auth-form">
