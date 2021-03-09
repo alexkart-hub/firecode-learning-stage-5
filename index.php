@@ -285,7 +285,7 @@ $APPLICATION->SetTitle('Главная');
 			2 => "PICTURE",
 			3 => "",
 		),
-		"SECTION_ID" => "4",
+		"SECTION_ID" => "6",
 		"SECTION_URL" => "/catalog/#SECTION_CODE_PATH#/",
 		"SECTION_USER_FIELDS" => array(
 			0 => "UF_SHOW_ON_MAIN",

@@ -55,6 +55,6 @@ if(strlen($arResult["OK_MESSAGE"]) > 0)
 	</div>
 	<?endif;?>
 	<input type="hidden" name="PARAMS_HASH" value="<?=$arResult["PARAMS_HASH"]?>">
-	<button type="submit" name="submit" class="btn_site btn_red"><?=GetMessage("MFT_SUBMIT")?></button>
+    <input type="submit" name="submit" class="btn_site btn_red" value="<?=GetMessage("MFT_SUBMIT")?>">
 </form>
 </div>

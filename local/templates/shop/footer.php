@@ -217,94 +217,26 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 
 <div class="bg_page_site"></div>
 <div class="forma_callback">
-	<?$APPLICATION->IncludeComponent(
-	"slam:easyform", 
-	"shop_feedback_form_slam_main_page", 
-	array(
-		"ACTIVE_ELEMENT" => "N",
-		"CATEGORY_EMAIL_PLACEHOLDER" => "",
-		"CATEGORY_EMAIL_TITLE" => "Ваш E-mail",
-		"CATEGORY_EMAIL_TYPE" => "email",
-		"CATEGORY_EMAIL_VALIDATION_ADDITIONALLY_MESSAGE" => "data-bv-emailaddress-message=\"E-mail введен некорректно\"",
-		"CATEGORY_EMAIL_VALIDATION_MESSAGE" => "Обязательное поле",
-		"CATEGORY_EMAIL_VALUE" => "",
-		"CATEGORY_MESSAGE_PLACEHOLDER" => "",
-		"CATEGORY_MESSAGE_TITLE" => "Сообщение",
-		"CATEGORY_MESSAGE_TYPE" => "textarea",
-		"CATEGORY_MESSAGE_VALIDATION_ADDITIONALLY_MESSAGE" => "",
-		"CATEGORY_MESSAGE_VALUE" => "",
-		"CATEGORY_PHONE_IBLOCK_FIELD" => "FORM_PHONE",
-		"CATEGORY_PHONE_INPUTMASK" => "N",
-		"CATEGORY_PHONE_INPUTMASK_TEMP" => "+7 (999) 999-9999",
-		"CATEGORY_PHONE_PLACEHOLDER" => "Контактный телефон",
-		"CATEGORY_PHONE_TITLE" => "Контактный телефон",
-		"CATEGORY_PHONE_TYPE" => "tel",
-		"CATEGORY_PHONE_VALIDATION_ADDITIONALLY_MESSAGE" => "",
-		"CATEGORY_PHONE_VALIDATION_MESSAGE" => "Обязательное поле",
-		"CATEGORY_PHONE_VALUE" => "",
-		"CATEGORY_TITLE_IBLOCK_FIELD" => "NAME",
-		"CATEGORY_TITLE_PLACEHOLDER" => "Ваше имя",
-		"CATEGORY_TITLE_TITLE" => "Ваше имя",
-		"CATEGORY_TITLE_TYPE" => "text",
-		"CATEGORY_TITLE_VALIDATION_ADDITIONALLY_MESSAGE" => "",
-		"CATEGORY_TITLE_VALIDATION_MESSAGE" => "Обязательное поле",
-		"CATEGORY_TITLE_VALUE" => "",
-		"CREATE_IBLOCK" => "",
-		"CREATE_SEND_MAIL" => "",
-		"DISPLAY_FIELDS" => array(
-			0 => "TITLE",
-			1 => "PHONE",
-			2 => "ACCEPT",
-			3 => "",
-		),
-		"EMAIL_BCC" => "",
-		"EMAIL_FILE" => "N",
-		"EMAIL_TO" => "",
-		"ENABLE_SEND_MAIL" => "Y",
-		"ERROR_TEXT" => "Произошла ошибка. Сообщение не отправлено.",
-		"EVENT_MESSAGE_ID" => array(
-			0 => "50",
-		),
-		"FIELDS_ORDER" => "TITLE,PHONE,ACCEPT",
-		"FORM_AUTOCOMPLETE" => "Y",
-		"FORM_ID" => "FORM10",
-		"FORM_NAME" => "Форма обратной связи на главной",
-		"FORM_SUBMIT_VALUE" => "Отправить",
-		"FORM_SUBMIT_VARNING" => "Нажимая на кнопку \"#BUTTON#\", вы даете согласие на обработку <a target=\"_blank\" href=\"#\">персональных данных</a>",
-		"HIDE_ASTERISK" => "Y",
-		"HIDE_FIELD_NAME" => "Y",
-		"HIDE_FORMVALIDATION_TEXT" => "Y",
-		"IBLOCK_ID" => "11",
-		"IBLOCK_TYPE" => "formresult",
-		"INCLUDE_BOOTSRAP_JS" => "Y",
-		"MAIL_SUBJECT_ADMIN" => "#SITE_NAME#: Сообщение из формы обратной связи",
-		"OK_TEXT" => "Ваше сообщение отправлено. Мы свяжемся с вами в течение 2х часов",
-		"REQUIRED_FIELDS" => array(
-			0 => "TITLE",
-			1 => "PHONE",
-			2 => "ACCEPT",
-		),
-		"SEND_AJAX" => "Y",
-		"SHOW_MODAL" => "N",
-		"TITLE_SHOW_MODAL" => "Спасибо!",
-		"USE_BOOTSRAP_CSS" => "Y",
-		"USE_BOOTSRAP_JS" => "N",
-		"USE_CAPTCHA" => "N",
-		"USE_FORMVALIDATION_JS" => "Y",
-		"USE_IBLOCK_WRITE" => "Y",
-		"USE_JQUERY" => "N",
-		"USE_MODULE_VARNING" => "Y",
-		"WIDTH_FORM" => "",
-		"_CALLBACKS" => "saccess_send",
-		"COMPONENT_TEMPLATE" => "shop_feedback_form_slam_main_page",
-		"CATEGORY_ACCEPT_TITLE" => "Согласие на обработку данных",
-		"CATEGORY_ACCEPT_TYPE" => "accept",
-		"CATEGORY_ACCEPT_VALUE" => "Принимаю <a href=\"/soglasie.php\" target=\"_blank\">согласие на обработку персональных данных</a>",
-		"CATEGORY_ACCEPT_IBLOCK_FIELD" => "FORM_ACCEPT"
-	),
-	false
-);?>
-<div class="close_forma_callback"></div>
+    <?$APPLICATION->IncludeComponent(
+        "bitrix:main.feedback",
+        "shop_feedback_form_main_page",
+        array(
+            "EMAIL_TO" => COption::GetOptionString("main", "email_from"),
+            "EVENT_MESSAGE_ID" => array(
+                0 => "50",
+            ),
+            "OK_TEXT" => "Спасибо, ваше сообщение принято.",
+            "REQUIRED_FIELDS" => array(
+                0 => "NAME",
+                1 => "PHONE",
+            ),
+            "USE_CAPTCHA" => "N",
+            "COMPONENT_TEMPLATE" => "shop_feedback_form_main_page"
+        ),
+        false
+    );?>
+
+    <div class="close_forma_callback"></div>
 </div>
 
 <div class="menu-icon_wrapper hidden-sm hidden-md hidden-lg">
