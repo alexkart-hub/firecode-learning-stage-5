@@ -223,7 +223,7 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
         array(
             "EMAIL_TO" => COption::GetOptionString("main", "email_from"),
             "EVENT_MESSAGE_ID" => array(
-                0 => "50",
+                0 => getEventIdBySubject("#SITE_NAME#: Запись на установку","FEEDBACK_FORM"),
             ),
             "OK_TEXT" => "Спасибо, ваше сообщение принято.",
             "REQUIRED_FIELDS" => array(
