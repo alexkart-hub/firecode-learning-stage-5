@@ -336,38 +336,7 @@ $strAlt = (
 			if (!empty($arResult['DISPLAY_PROPERTIES']) || $arResult['SHOW_OFFERS_PROPS'])
 			{
 				?>
-				<?/*
-				<div class="item_info_section">
-					<?
-						if (!empty($arResult['DISPLAY_PROPERTIES']))
-						{
-					?>
-						<dl>
-					<?
-							foreach ($arResult['DISPLAY_PROPERTIES'] as &$arOneProp)
-							{
-					?>
-							<dt><? echo $arOneProp['NAME']; ?></dt><dd><?
-								echo (
-									is_array($arOneProp['DISPLAY_VALUE'])
-									? implode(' / ', $arOneProp['DISPLAY_VALUE'])
-									: $arOneProp['DISPLAY_VALUE']
-								); ?></dd><?
-							}
-							unset($arOneProp);
-					?>
-						</dl>
-					<?
-						}
-						if ($arResult['SHOW_OFFERS_PROPS'])
-						{
-					?>
-						<dl id="<? echo $arItemIDs['DISPLAY_PROP_DIV'] ?>" style="display: none;"></dl>
-					<?
-						}
-					?>
-				</div>
-				*/?>
+
 				<?
 			}
 			if (isset($arResult['OFFERS']) && !empty($arResult['OFFERS']) && !empty($arResult['OFFERS_PROP']))

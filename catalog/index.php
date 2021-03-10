@@ -107,11 +107,12 @@ $APPLICATION->SetTitle("Каталог");
 		"FILTER_HIDE_ON_MOBILE" => "N",
 		"FILTER_NAME" => "arrFilter",
 		"FILTER_PRICE_CODE" => array(
-			0 => "retail_price",
+			0 => "retail",
 		),
 		"FILTER_PROPERTY_CODE" => array(
-			0 => "color",
-			1 => "",
+			0 => "",
+			1 => "color",
+			2 => "",
 		),
 		"FILTER_VIEW_MODE" => "HORIZONTAL",
 		"GIFTS_DETAIL_BLOCK_TITLE" => "Выберите один из подарков",
@@ -180,7 +181,7 @@ $APPLICATION->SetTitle("Каталог");
 		"PAGE_ELEMENT_COUNT" => "12",
 		"PARTIAL_PRODUCT_PROPERTIES" => "Y",
 		"PRICE_CODE" => array(
-			0 => "retail_price",
+			0 => "retail",
 		),
 		"PRICE_VAT_INCLUDE" => "Y",
 		"PRICE_VAT_SHOW_VALUE" => "N",

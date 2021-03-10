@@ -216,7 +216,7 @@ if (empty($arResult['ERROR_MESSAGE']))
 						<th>Сумма</th>
 						<th></th>
 					</tr>
-				</table>
+                </table>
 				</div>
 				<?
 				if (

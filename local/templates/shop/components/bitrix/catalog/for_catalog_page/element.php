@@ -25,7 +25,7 @@ else
 ?>
 <?$ElementID = $APPLICATION->IncludeComponent(
 	"bitrix:catalog.element",
-	"",
+	"catalog_single_element",
 	array(
 		"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
 		"IBLOCK_ID" => $arParams["IBLOCK_ID"],

@@ -159,6 +159,7 @@ $APPLICATION->SetTitle('Главная');
 		"OFFERS_LIMIT" => "8",
 		"PARTIAL_PRODUCT_PROPERTIES" => "Y",
 		"PRICE_CODE" => array(
+			0 => "retail",
 		),
 		"PRICE_VAT_INCLUDE" => "Y",
 		"PRODUCT_BLOCKS_ORDER" => "price,props,sku,quantityLimit,quantity,buttons",
@@ -169,7 +170,7 @@ $APPLICATION->SetTitle('Главная');
 		"PRODUCT_SUBSCRIPTION" => "Y",
 		"ROTATE_TIMER" => "30",
 		"SECTION_URL" => "/catalog/#SECTION_CODE_PATH#/",
-		"SEF_MODE" => "Y",
+		"SEF_MODE" => "N",
 		"SEF_RULE" => "/catalog/#SECTION_CODE_PATH#/#ELEMENT_CODE#",
 		"SHOW_CLOSE_POPUP" => "N",
 		"SHOW_DISCOUNT_PERCENT" => "N",

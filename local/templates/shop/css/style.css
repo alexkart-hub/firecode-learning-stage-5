@@ -2607,7 +2607,9 @@ section.cart {
 .gallery_wrapper a:hover {
     opacity: 0.7;
 }
-
+.goods_right{
+    width: 105%;
+}
 .goods_right .price {
     font-size: 30px;
     font-family: "PFDinDisplayProMed";
