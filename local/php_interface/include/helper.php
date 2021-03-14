@@ -1,15 +1,25 @@
 <?
-/**
+
+use Bitrix\Iblock\IblockTable;
+
+function debug($data){
+    echo '<pre>';
+    print_r($data);
+    echo '</pre>';
+}
+
+/** D7
  * @param $code
  * @return string
  */
-function getIblockIdByCode($code){
-    $res = CIBlock::GetList(
-                    Array(),
-                    Array("CODE"=>$code),
-                    true
-                );
-    return $res->Fetch()['ID'];
+function getIblockIdByCode($code)
+{
+    $id = IblockTable::getList([
+        'filter'=>[
+            'CODE'=>$code,
+        ],
+    ])->fetch()['ID'];
+    return $id;
 }
 /**
  * @param string $code
@@ -35,7 +45,6 @@ function getEventIdBySubject($subject,$typeId){
     );
 
     $rsMess = CEventMessage::GetList($by="site_id", $order="desc", $arFilter);
-
 
     return $rsMess->Fetch()['ID'];
 }

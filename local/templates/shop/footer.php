@@ -218,7 +218,7 @@ if(!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 <div class="bg_page_site"></div>
 <div class="forma_callback">
     <?$APPLICATION->IncludeComponent(
-        "bitrix:main.feedback",
+        "legen:main.feedback",
         "shop_feedback_form_main_page",
         array(
             "EMAIL_TO" => COption::GetOptionString("main", "email_from"),

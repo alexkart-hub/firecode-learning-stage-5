@@ -38,7 +38,7 @@ $APPLICATION->SetTitle("Контакты");
 					</div>
 					<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                     <?$APPLICATION->IncludeComponent(
-                        "bitrix:main.feedback",
+                        "legen:main.feedback",
                         "shop_feedback_form",
                         array(
                             "EMAIL_TO" => COption::GetOptionString("main", "email_from"),
