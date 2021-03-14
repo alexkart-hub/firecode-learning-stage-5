@@ -118,8 +118,8 @@ if (!empty($arResult['ITEMS']))
 				Сортировать: <span class="sort_popup"><?=$strSort?></span>
 				<div class="popup" style="z-index:1000;">
 					<ul>
-						<li><a href="?sort=catalog_price_1&order=asc">цена (по возрастанию)</a></li>
-						<li><a href="?sort=catalog_price_1&order=desc">цена (по убыванию)</a></li>
+						<li><a href="?sort=SCALED_PRICE_6&order=asc">цена (по возрастанию)</a></li>
+						<li><a href="?sort=SCALED_PRICE_6&order=desc">цена (по убыванию)</a></li>
 					</ul>
 				</div>
 			</div>
