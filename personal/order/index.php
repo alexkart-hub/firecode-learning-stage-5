@@ -37,9 +37,8 @@ $APPLICATION->SetTitle("Оформление заказа");
 		),
 		"PRODUCT_COLUMNS_VISIBLE" => array(
 			0 => "DETAIL_PICTURE",
-			1 => "PREVIEW_TEXT",
-			2 => "PROPS",
-			3 => "PRICE_FORMATED",
+			1 => "PRICE_FORMATED",
+			2 => "PROPERTY_artikle",
 		),
 		"SEND_NEW_USER_NOTIFY" => "Y",
 		"SERVICES_IMAGES_SCALING" => "adaptive",
