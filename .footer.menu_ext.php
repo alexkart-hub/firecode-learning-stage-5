@@ -8,8 +8,8 @@ $aMenuLinksExt = $APPLICATION->IncludeComponent(
 	"",
 	array(
 		"ID" => $_REQUEST["ELEMENT_ID"],
-		"IBLOCK_TYPE" => "goods",
-		"IBLOCK_ID" => "1",
+		"IBLOCK_TYPE" => "catalog",
+		"IBLOCK_ID" => getIblockIdByCode('catalog'),
 		"SECTION_URL" => "/catalog/#SECTION_CODE#/",
 		"CACHE_TIME" => "3600",
 		"IS_SEF" => "Y",
