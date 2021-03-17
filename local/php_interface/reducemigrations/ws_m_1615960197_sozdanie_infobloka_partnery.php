@@ -1,5 +1,6 @@
 <?php
 
+use Bitrix\Iblock\IblockFieldTable;
 use Bitrix\Iblock\IblockGroupTable;
 use Bitrix\Iblock\IblockSiteTable;
 use Bitrix\Iblock\IblockTable;
@@ -69,6 +70,80 @@ class ws_m_1615960197_sozdanie_infobloka_partnery extends \WS\ReduceMigrations\S
             'GROUP_ID'=>1,
             'PERMISSION'=>'X',
         ]);
+        $arFields = array(
+            "ACTIVE_FROM" => array(
+                "IS_REQUIRED" => "N",
+                "DEFAULT_VALUE" => "=now"
+            ),
+            "PREVIEW_PICTURE" => array(
+                "IS_REQUIRED" => "N",
+                "DEFAULT_VALUE" => array(
+                    "FROM_DETAIL" => "Y",
+                    "UPDATE_WITH_DETAIL" => "Y",
+                    "DELETE_WITH_DETAIL" => "Y",
+                    "SCALE" => "Y",
+                    "WIDTH" => "300",
+                    "HEIGHT" => "300",
+                )
+            ),
+            "DETAIL_PICTURE" => array(
+                "IS_REQUIRED" => "N",
+                "DEFAULT_VALUE" => array(
+                    "SCALE" => "Y",
+                    "WIDTH" => "1000",
+                    "HEIGHT" => "1000",
+                )
+            ),
+            "CODE" => array(
+                "IS_REQUIRED" => "N",
+                "DEFAULT_VALUE" => array(
+                    "UNIQUE" => "Y",
+                    "TRANSLITERATION" => "Y",
+                    "TRANS_CASE" => "L",
+                    "TRANS_SPACE"=> "-",
+                )
+            ),
+            "SECTION_PICTURE" => array(
+                "IS_REQUIRED" => "N",
+                "DEFAULT_VALUE" => array(
+                    "FROM_DETAIL" => "Y",
+                    "UPDATE_WITH_DETAIL" => "Y",
+                    "DELETE_WITH_DETAIL" => "Y",
+                    "SCALE" => "Y",
+                    "WIDTH" => "300",
+                    "HEIGHT" => "300",
+                )
+            ),
+            "SECTION_DETAIL_PICTURE" => array(
+                "IS_REQUIRED" => "N",
+                "DEFAULT_VALUE" => array(
+                    "SCALE" => "Y",
+                    "WIDTH" => "1000",
+                    "HEIGHT" => "1000",
+                )
+            ),
+            "SECTION_CODE" => array(
+                "IS_REQUIRED" => "N",
+                "DEFAULT_VALUE" => array(
+                    "UNIQUE" => "Y",
+                    "TRANSLITERATION" => "Y",
+                    "TRANS_CASE" => "L",
+                    "TRANS_SPACE"=> "-",
+                )
+            ),
+        );
+        CIBlock::SetFields(
+            $id,
+            $arFields
+        );
+//        foreach ($arFields as $fieldId=>$value) {
+//            IblockFieldTable::add([
+//                'IBLOCK_ID'=>$id,
+//                'FIELD_ID'=>$fieldId,
+//                'IS_REQUIRED'=>$value['IS_REQUIRED'],
+//                'DEFAULT_VALUE'=>$value['DEFAULT_VALUE'],
+//            ]);
+//        }
     }
 
     /**
@@ -83,6 +158,9 @@ class ws_m_1615960197_sozdanie_infobloka_partnery extends \WS\ReduceMigrations\S
             'IBLOCK_ID'=>$id,
         ]);
         IblockSiteTable::Delete([
+            'IBLOCK_ID'=>$id,
+        ]);
+        IblockFieldTable::Delete([
             'IBLOCK_ID'=>$id,
         ]);
     }
