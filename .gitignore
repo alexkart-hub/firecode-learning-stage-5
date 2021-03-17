@@ -2,5 +2,5 @@
 Thumbs.db
 /.idea/
 /bitrix/catalog_export/
-/upload/[!i]*/
+/upload/**/
 /upload/.?*
