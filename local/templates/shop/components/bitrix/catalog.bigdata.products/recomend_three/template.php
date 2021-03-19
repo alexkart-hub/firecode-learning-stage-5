@@ -29,7 +29,7 @@ if (isset($arResult['REQUEST_ITEMS']))
 
 	?>
 
-	<d.0iv class="row" id="<?=$injectId?>"></d.0iv>
+	<div class="row" id="<?=$injectId?>"></div>
 
 	<script type="text/javascript">
 		BX.ready(function(){

@@ -214,12 +214,122 @@ if ($ElementID > 0)
 			}
 		}
 		$obCache->EndDataCache($arRecomData);
-	}
+	}?>
+	<?
+	$grandParentId = getElementGrandParentID($ElementID);
+	$grandParentCode = getSectionCodeById($grandParentId);
+	?>
+	<?$APPLICATION->IncludeComponent(
+	"bitrix:catalog.section",
+	"for_similar_products",
+	Array(
+		"ACTION_VARIABLE" => "action",
+		"ADD_PICT_PROP" => "-",
+		"ADD_PROPERTIES_TO_BASKET" => "Y",
+		"ADD_SECTIONS_CHAIN" => "N",
+		"ADD_TO_BASKET_ACTION" => "ADD",
+		"AJAX_MODE" => "N",
+		"AJAX_OPTION_ADDITIONAL" => "",
+		"AJAX_OPTION_HISTORY" => "N",
+		"AJAX_OPTION_JUMP" => "N",
+		"AJAX_OPTION_STYLE" => "Y",
+		"BACKGROUND_IMAGE" => "-",
+		"BASKET_URL" => "/personal/basket.php",
+		"BROWSER_TITLE" => "-",
+		"CACHE_FILTER" => "N",
+		"CACHE_GROUPS" => "Y",
+		"CACHE_TIME" => "0",
+		"CACHE_TYPE" => "N",
+		"COMPATIBLE_MODE" => "Y",
+		"CONVERT_CURRENCY" => "N",
+		"CUSTOM_FILTER" => "",
+		"DETAIL_URL" => "",
+		"DISABLE_INIT_JS_IN_COMPONENT" => "N",
+		"DISPLAY_BOTTOM_PAGER" => "N",
+		"DISPLAY_COMPARE" => "N",
+		"DISPLAY_TOP_PAGER" => "N",
+		"CURRENT_ELEMENT_ID"=>$ElementID,
+		"ELEMENT_SORT_FIELD" => "sort",
+		"ELEMENT_SORT_FIELD2" => "id",
+		"ELEMENT_SORT_ORDER" => "asc",
+		"ELEMENT_SORT_ORDER2" => "desc",
+		"ENLARGE_PRODUCT" => "STRICT",
+		"FILTER_NAME" => "arrFilter",
+		"HIDE_NOT_AVAILABLE" => "N",
+		"HIDE_NOT_AVAILABLE_OFFERS" => "N",
+		"IBLOCK_ID" => $arParams["IBLOCK_ID"],
+		"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
+		"INCLUDE_SUBSECTIONS" => "Y",
+		"LABEL_PROP" => array(),
+		"LAZY_LOAD" => "N",
+		"LINE_ELEMENT_COUNT" => "3",
+		"LOAD_ON_SCROLL" => "N",
+		"MESSAGE_404" => "",
+		"MESS_BTN_ADD_TO_BASKET" => "В корзину",
+		"MESS_BTN_BUY" => "Купить",
+		"MESS_BTN_DETAIL" => "Подробнее",
+		"MESS_BTN_SUBSCRIBE" => "Подписаться",
+		"MESS_NOT_AVAILABLE" => "Нет в наличии",
+		"META_DESCRIPTION" => "-",
+		"META_KEYWORDS" => "-",
+		"OFFERS_LIMIT" => "3",
+		"PAGER_BASE_LINK_ENABLE" => "N",
+		"PAGER_DESC_NUMBERING" => "N",
+		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+		"PAGER_SHOW_ALL" => "N",
+		"PAGER_SHOW_ALWAYS" => "N",
+		"PAGER_TEMPLATE" => ".default",
+		"PAGER_TITLE" => "Товары",
+		"PAGE_ELEMENT_COUNT" => "30",
+		"PARTIAL_PRODUCT_PROPERTIES" => "N",
+		"PRICE_CODE" => $arParams["PRICE_CODE"],
+		"PRICE_VAT_INCLUDE" => "Y",
+		"PRODUCT_BLOCKS_ORDER" => "price,props,sku,quantityLimit,quantity,buttons",
+		"PRODUCT_ID_VARIABLE" => "id",
+		"PRODUCT_PROPS_VARIABLE" => "prop",
+		"PRODUCT_QUANTITY_VARIABLE" => "quantity",
+		"PRODUCT_ROW_VARIANTS" => "[{'VARIANT':'2','BIG_DATA':true}]",
+		"PRODUCT_SUBSCRIPTION" => "N",
+		"RCM_PROD_ID" => $_REQUEST["PRODUCT_ID"],
+		"RCM_TYPE" => "personal",
+		"SECTION_ID" => $grandParentId,
+		"SECTION_CODE" => $grandParentCode,
+		"SECTION_ID_VARIABLE" => "SECTION_ID",
+		"SECTION_URL" => "",
+		"SECTION_USER_FIELDS" => array("",""),
+		"SEF_MODE" => "Y",
+		"SET_BROWSER_TITLE" => "N",
+		"SET_LAST_MODIFIED" => "N",
+		"SET_META_DESCRIPTION" => "N",
+		"SET_META_KEYWORDS" => "N",
+		"SET_STATUS_404" => "N",
+		"SET_TITLE" => "N",
+		"SHOW_404" => "N",
+		"SHOW_ALL_WO_SECTION" => "Y",
+		"SHOW_CLOSE_POPUP" => "N",
+		"SHOW_DISCOUNT_PERCENT" => "N",
+		"SHOW_FROM_SECTION" => "N",
+		"SHOW_MAX_QUANTITY" => "N",
+		"SHOW_OLD_PRICE" => "N",
+		"SHOW_PRICE_COUNT" => "1",
+		"SHOW_SLIDER" => "Y",
+		"SLIDER_INTERVAL" => "3000",
+		"SLIDER_PROGRESS" => "N",
+		"TEMPLATE_THEME" => "blue",
+		"USE_ENHANCED_ECOMMERCE" => "N",
+		"USE_MAIN_ELEMENT_SECTION" => "N",
+		"USE_PRICE_COUNT" => "N",
+		"USE_PRODUCT_QUANTITY" => "Y"
+	)
+);?>
+	<?
+	/*
 	if (!empty($arRecomData))
 	{
 		if (ModuleManager::isModuleInstalled("sale") && (!isset($arParams['USE_BIG_DATA']) || $arParams['USE_BIG_DATA'] != 'N'))
-		{
-			?><?$APPLICATION->IncludeComponent("bitrix:catalog.bigdata.products", "recomend_three", array(
+		{?>
+            <?$APPLICATION->IncludeComponent("bitrix:catalog.bigdata.products",
+            "recomend_three", array(
 				"LINE_ELEMENT_COUNT" => 3,
 				"TEMPLATE_THEME" => (isset($arParams['TEMPLATE_THEME']) ? $arParams['TEMPLATE_THEME'] : ''),
 				"DETAIL_URL" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["element"],
@@ -272,12 +382,11 @@ if ($ElementID > 0)
 			),
 			$component,
 			array("HIDE_ICONS" => "Y")
-		);
-		}
+		    );?>
+		<?}
 		if (($arRecomData['IBLOCK_LINK'] != '' || $arRecomData['ALL_LINK'] != ''))
-		{
-			?><?
-			$APPLICATION->IncludeComponent(
+		{?>
+            <?$APPLICATION->IncludeComponent(
 				"bitrix:catalog.recommended.products",
 				"",
 				array(
@@ -320,15 +429,14 @@ if ($ElementID > 0)
 				),
 				$component,
 				array("HIDE_ICONS" => "Y")
-			);
-			?><?
-		}
+			);?>
+        <?}
 	}
 
 	if($arParams["USE_ALSO_BUY"] == "Y" && ModuleManager::isModuleInstalled("sale") && !empty($arRecomData))
-	{
-		?>
-		<?$APPLICATION->IncludeComponent("bitrix:sale.recommended.products", ".default", array(
+	{?>
+		<?$APPLICATION->IncludeComponent("bitrix:sale.recommended.products",
+        ".default", array(
 			"ID" => $ElementID,
 			"TEMPLATE_THEME" => (isset($arParams['TEMPLATE_THEME']) ? $arParams['TEMPLATE_THEME'] : ''),
 			"MIN_BUYES" => $arParams["ALSO_BUY_MIN_BUYES"],
@@ -358,9 +466,8 @@ if ($ElementID > 0)
 		),
 		$component,
 		array("HIDE_ICONS" => "Y")
-	);
-		?>
-		<?
-	}
+    );?>
+    <?}
+	*/
 }
 ?>
