@@ -1,6 +1,6 @@
 .DS_Store
 Thumbs.db
 /.idea/
-/bitrix/catalog_export/
-/upload/**/
-/upload/.?*
+/bitrix/
+/upload/
+
