@@ -95,7 +95,7 @@ class ws_m_1614844061_sozdanie_infobloka_katalog extends \WS\ReduceMigrations\Sc
                 )
             ),
             "CODE" => array(
-                "IS_REQUIRED" => "Y",
+                "IS_REQUIRED" => "N",
                 "DEFAULT_VALUE" => array(
                     "UNIQUE" => "Y",
                     "TRANSLITERATION" => "Y",
@@ -123,7 +123,7 @@ class ws_m_1614844061_sozdanie_infobloka_katalog extends \WS\ReduceMigrations\Sc
                 )
             ),
             "SECTION_CODE" => array(
-                "IS_REQUIRED" => "Y",
+                "IS_REQUIRED" => "N",
                 "DEFAULT_VALUE" => array(
                     "UNIQUE" => "Y",
                     "TRANSLITERATION" => "Y",
