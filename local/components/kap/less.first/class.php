@@ -26,20 +26,22 @@ class KapLessFirst extends CBitrixComponent
 
     protected function prepareArResult()
     {
-        $iblockId = $this->arParams['IBLOCK_ID'];
+        $iblockCode = $this->arParams['IBLOCK_CODE'];
+        $iblockId = getIblockIdByCode($iblockCode);
         $this->arResult['IBLOCK_ID'] = $iblockId;
 
+        $arUserFields = [];
         $userFields = \Bitrix\Main\UserFieldTable::getList([
             'select' => ['FIELD_NAME', 'ENTITY_ID'],
             'filter' => ['=ENTITY_ID' => 'IBLOCK_' . $iblockId . '_SECTION']
         ]);
         while ($field = $userFields->fetch()) {
-            $this->arResult['USER_FIELDS'][] = $field['FIELD_NAME'];
+            $arUserFields[] = $field['FIELD_NAME'];
         }
-        if (!empty($this->arResult['USER_FIELDS'])) {
+        if (!empty($arUserFields)) {
             $entity = \Bitrix\Iblock\Model\Section::compileEntityByIblock($iblockId);
             $userFieldsValue = $entity::getList([
-                'select' => array_merge($this->arResult['USER_FIELDS'], ['ID']),
+                'select' => array_merge($arUserFields, ['ID']),
                 'filter' => ['IBLOCK_ID' => $iblockId],
             ]);
             while ($values = $userFieldsValue->fetch()) {
@@ -47,11 +49,39 @@ class KapLessFirst extends CBitrixComponent
                 foreach ($values as $key => $value) {
                     if ($key != "ID") {
                         if ($value != false) {
-                            $this->arResult['USER_FIELDS']['VALUE'][$sectionId][$key] = $value;
+                            $arUserFields['VALUE'][$sectionId][$key] = $value;
                         }
                     }
                 }
             }
+            $this->arResult['USER_FIELDS']['SECTIONS'] = $arUserFields;
+        }
+
+        $iblock = \Bitrix\Iblock\Iblock::wakeUp($iblockId);
+        $arProperties = [];
+        $userProperties = \Bitrix\Iblock\PropertyTable::getList([
+            'select' => ['NAME', 'CODE', 'ID'],
+            'filter' => ['=IBLOCK_ID' => $iblockId],
+        ]);
+        while ($property = $userProperties->fetch()) {
+            $arProperties['PROPERTIES'][] = $property['CODE'];
+//            $arProperties[$property['ID']]['NAME'] = $property['NAME'];
+//            $arProperties[$property['ID']]['CODE'] = $property['CODE'];
+        }
+        if (!empty($arProperties)) {
+            $this->arResult['USER_FIELDS']['ELEMENTS'] = $arProperties;
+            $elements = $iblock->getEntityDataClass()::getList([
+                'select' => array_merge(['ID'], $arProperties['PROPERTIES']),
+            ]);
+
+            while ($element = $elements->fetch()) {
+                foreach($arProperties['PROPERTIES'] as $property){
+                    $arProperties['VALUE'][$element['ID']][$property] =
+                        $element['IBLOCK_ELEMENTS_ELEMENT_'.strtoupper($iblockCode).'_'.$property.'_VALUE'];
+                }
+
+            }
+            $this->arResult['USER_FIELDS']['ELEMENTS']['VALUE'] = $arProperties['VALUE'];
         }
     }
 }

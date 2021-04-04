@@ -29,11 +29,12 @@ $APPLICATION->SetTitle("Лаборатория");
 	".default", 
 	array(
 		"COMPONENT_TEMPLATE" => ".default",
-		"IBLOCK_TYPE" => "activity",
-		"IBLOCK_ID" => "27",
+		"IBLOCK_TYPE" => "catalog",
+		"IBLOCK_ID" => "17",
 		"CACHE_TYPE" => "A",
 		"CACHE_TIME" => "3600",
-		"CACHE_GROUPS" => "Y"
+		"CACHE_GROUPS" => "Y",
+		"IBLOCK_CODE" => "catalog"
 	),
 	false
 ); ?>
