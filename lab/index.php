@@ -30,7 +30,6 @@ $APPLICATION->SetTitle("Лаборатория");
 	array(
 		"COMPONENT_TEMPLATE" => ".default",
 		"IBLOCK_TYPE" => "catalog",
-		"IBLOCK_ID" => "17",
 		"CACHE_TYPE" => "A",
 		"CACHE_TIME" => "3600",
 		"CACHE_GROUPS" => "Y",

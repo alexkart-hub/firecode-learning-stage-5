@@ -24,7 +24,6 @@ while ($IBTypes = $rsIBTypes->fetch()) {
 
 //IB
 $arIBlocks = [];
-$arIBlockCodes = [];
 $rsIBlocks = IblockTable::getList([
     'order' => array('ID' => 'ASC'),
     'filter' => array(
@@ -65,7 +64,6 @@ $arComponentParameters = array(
             "REFRESH" => "Y",
             "SORT" => 20,
         ),
-
 
         "CACHE_TIME" => array(
             "DEFAULT" => 3600,
